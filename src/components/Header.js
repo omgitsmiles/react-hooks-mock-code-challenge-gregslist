@@ -1,7 +1,9 @@
 import React from "react";
 import Search from "./Search";
+import NewListingForm from "./NewListingForm";
+import Sort from "./Sort";
 
-function Header() {
+function Header({ search, setSearch, handleSearch, handleNewListing, setSort={setSort} }) {
   return (
     <header>
       <h1>
@@ -10,7 +12,14 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search search={search} setSearch={setSearch} handleSearch={handleSearch}/>
+      <div>
+      <NewListingForm handleNewListing={handleNewListing}/>
+      </div>
+      <div>
+        <br></br>
+      <Sort setSort={setSort}/>
+      </div>
     </header>
   );
 }
